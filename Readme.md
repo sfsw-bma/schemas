@@ -8,7 +8,7 @@
 
 ####The top level schema for each of the Laminar Data APIs is listed below:
 
-###FLIGHT DATA APIs
+####FLIGHT DATA APIs
 
 /airlines/{airline.prefix}/flights
 
