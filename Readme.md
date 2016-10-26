@@ -1,16 +1,14 @@
-Resource distributed by Snowflake Software Ltd. For support visit developer.laminardata.aero
+###Resource distributed by Snowflake Software Ltd. For support visit developer.laminardata.aero
 
-###This schema bundle comprises the complete list of schemas used to serve the XML data found on the Laminar Data APIs.
+####This schema bundle comprises the complete list of schemas used to serve the XML data found on the Laminar Data APIs.
 
-###Data downloaded from the Laminar Data API will not directly validate against the schemas found in this bundle, 
-to do this you will need to alter the header of the XML downloaded from Laminar so that the xmlns declarations point to a local resource rather than an online location.
+####Data downloaded from the Laminar Data API will not directly validate against the schemas found in this bundle, to do this you will need to alter the header of the XML downloaded from Laminar so that the xmlns declarations point to a local resource rather than an online location.
 
-###This bundle contains all the schemas you will need to get started developing against the XML endpoints of the Laminar Data APIs, including both source and reference schemas.
+####This bundle contains all the schemas you will need to get started developing against the XML endpoints of the Laminar Data APIs, including both source and reference schemas.
 
-###The top level schema for each of the Laminar Data APIs is listed below:
+####The top level schema for each of the Laminar Data APIs is listed below:
 
-FLIGHT DATA APIs
-================
+###FLIGHT DATA APIs
 
 /airlines/{airline.prefix}/flights
 
@@ -21,8 +19,7 @@ FLIGHT DATA APIs
 
 \fixm\3.0.1\core\fixm.xsd
 
-WEATHER DATA APIs
-=================
+####WEATHER DATA APIs
 
 /aerodromes/{aerodrome.icao}/metar
 
@@ -34,8 +31,7 @@ WEATHER DATA APIs
 
 \AvXML-1.1\iwxxm\1.1\iwxxm.xsd
 
-NOTAM APIs
-==========
+####NOTAM APIs
 
 /icao-prefixes/{icao.prefix}/firs/{fir.icao}/notams
 
@@ -43,8 +39,7 @@ NOTAM APIs
 
 \aixm\5.1\extensions\event\Event_Features.xsd
 
-AERONAUTICAL DATA APIs
-======================
+####AERONAUTICAL DATA APIs
 
 /icao-prefixes/{icao.prefix}/firs/{fir.icao}/route-segments
 
@@ -64,8 +59,7 @@ AERONAUTICAL DATA APIs
 
 \aixm\5.1\core\AIXM_Features.xsd
 
-REGULATION DATA APIs
-====================
+####REGULATION DATA APIs
 
 /icao-prefixes/{icao.prefix}/airspace-regulations
 
@@ -75,8 +69,7 @@ REGULATION DATA APIs
 
 \aixm\5.1\extensions\LaminarData\FlowRegulation\FlowRegulation_Extension.xsd
 
-REFERANCE DATA APIs
-===================
+####REFERANCE DATA APIs
 
 /airlines
 
