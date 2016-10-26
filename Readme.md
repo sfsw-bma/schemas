@@ -16,8 +16,7 @@
 
 /tiles/{zoom}/{x}/{y}/flights
 
-
-\fixm\3.0.1\core\fixm.xsd
+#####\fixm\3.0.1\core\fixm.xsd
 
 ####WEATHER DATA APIs
 
@@ -29,7 +28,7 @@
 
 /sigmets/{id}
 
-\AvXML-1.1\iwxxm\1.1\iwxxm.xsd
+#####\AvXML-1.1\iwxxm\1.1\iwxxm.xsd
 
 ####NOTAM APIs
 
@@ -37,7 +36,7 @@
 
 /notams/{notam.id}
 
-\aixm\5.1\extensions\event\Event_Features.xsd
+#####\aixm\5.1\extensions\event\Event_Features.xsd
 
 ####AERONAUTICAL DATA APIs
 
@@ -57,7 +56,7 @@
 
 /icao-prefixes/{icao.prefix}/firs/{fir.icao}/navaids/{icao}
 
-\aixm\5.1\core\AIXM_Features.xsd
+#####\aixm\5.1\core\AIXM_Features.xsd
 
 ####REGULATION DATA APIs
 
@@ -67,7 +66,7 @@
 
 /regulations/{id}
 
-\aixm\5.1\extensions\LaminarData\FlowRegulation\FlowRegulation_Extension.xsd
+#####\aixm\5.1\extensions\LaminarData\FlowRegulation\FlowRegulation_Extension.xsd
 
 ####REFERANCE DATA APIs
 
@@ -83,4 +82,4 @@
 
 /icao-prefixes/{icao.prefix}/firs/{fir.icao}
 
-\gml\3.2.1\gml.xsd
+#####\gml\3.2.1\gml.xsd
