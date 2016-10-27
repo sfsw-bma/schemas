@@ -36,7 +36,6 @@
 
 /notams/{notam.id}
 
-#####\aixm\5.1\extensions\event\Event_Features.xsd
 #####\aixm\5.1\extensions\event\eventExtension\SnowflakeEventExtension.xsd
 
 ####AERONAUTICAL DATA APIs
