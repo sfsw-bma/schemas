@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:fb="http://www.fixm.aero/base/3.0" xmlns:ff="http://www.fixm.aero/foundation/3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.fixm.aero/base/3.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0.1">
+	<import namespace="http://www.fixm.aero/foundation/3.0" schemaLocation="./../foundation/Foundation.xsd"/>
+	<complexType name="DirectionType">
+		<simpleContent>
+			<extension base="ff:AngleType">
+				<attribute name="ref" type="fb:DirectionReferenceType" use="optional"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<simpleType name="DirectionReferenceType">
+		<restriction base="xs:string">
+			<enumeration value="TRUE"/>
+			<enumeration value="MAGNETIC"/>
+		</restriction>
+	</simpleType>
+	<complexType name="FixPointType">
+		<complexContent>
+			<extension base="fb:SignificantPointType"/>
+			<!-- <attribute name="fix" type="ff:FixType" use="optional"/> -->
+		</complexContent>
+	</complexType>
+	<element name="FixPoint" type="fb:FixPointType" substitutionGroup="fb:SignificantPoint"/>
+	<complexType name="LocationPointType">
+		<complexContent>
+			<extension base="fb:SignificantPointType">
+				<sequence>
+					<!-- <element name="location" type="ff:GeographicLocationType" minOccurs="0" maxOccurs="1"/> -->
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<element name="LocationPoint" type="fb:LocationPointType" substitutionGroup="fb:SignificantPoint"/>
+	<complexType name="RelativePointType">
+		<complexContent>
+			<extension base="fb:FixPointType">
+				<sequence>
+					<!-- <element name="distance" type="ff:DistanceType" minOccurs="0" maxOccurs="1"/> -->
+					<!-- <element name="radial" type="fb:DirectionType" minOccurs="0" maxOccurs="1"/> -->
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<!-- <element name="RelativePoint" type="fb:RelativePointType" substitutionGroup="fb:SignificantPoint"/> -->
+	<complexType name="SignificantPointType" abstract="true">
+		<sequence>
+			<element name="location" type="ff:GeographicLocationType" minOccurs="0"/>
+			<element name="distance" type="ff:DistanceType" minOccurs="0"/>
+			<element name="radial" type="fb:DirectionType" minOccurs="0"/>
+		</sequence>
+		<attribute name="fix" type="ff:FixType" use="optional"/>
+		<attribute name="designator" type="xs:string" use="optional"/>
+		<!--Addded xsitype attribute to allow pulication of xsi:type required for valid FIXM messages -->
+		<!--Added designator attribute to significant point at customer request -->
+	</complexType>
+	<element name="SignificantPoint" type="fb:SignificantPointType"/>
+</schema>

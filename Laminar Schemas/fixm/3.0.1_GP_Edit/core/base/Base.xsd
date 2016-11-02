@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema
-   attributeFormDefault="unqualified"
-   elementFormDefault="qualified"
-   targetNamespace="http://www.fixm.aero/foundation/3.0"
-   version="3.0.1"
-   xmlns="http://www.w3.org/2001/XMLSchema"
-   xmlns:ff="http://www.fixm.aero/foundation/3.0"
-   xmlns:xs="http://www.w3.org/2001/XMLSchema">
-   
-   <annotation>
-      <documentation>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:fb="http://www.fixm.aero/base/3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.fixm.aero/base/3.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0.1">
+	<annotation>
+		<documentation>
          Copyright (c) 2014 Airservices Australia, EUROCONTROL, JCAB, NATS Limited, NavCanada, 
          SESAR Joint Undertaking &amp; US FAA 
          =========================================== 
@@ -66,69 +58,18 @@
          Details on the US FAA: http://www.faa.gov/ 
          Details on the US FAAs NextGen program: http://www.faa.gov/NextGen 
       </documentation>
-   </annotation>
-   <include schemaLocation="./Measures.xsd"/>
-   <annotation>
-      <documentation>
-         The location schema contains all FIXM definitions for locations. "Locations" can 
-         be more complex than simple 
-         geographic points: they also encompass waypoints (fixes, etc) and offsets from other 
-         points: anything that 
-         can be mapped to a geographic location. Furthermore, extensions may add new location 
-         types as needed. 
+	</annotation>
+	<include schemaLocation="./Aerodrome.xsd"/>
+	<include schemaLocation="./Airspace.xsd"/>
+	<include schemaLocation="./Extension.xsd"/>
+	<include schemaLocation="./Feature.xsd"/>
+	<include schemaLocation="./Location.xsd"/>
+	<include schemaLocation="./Time.xsd"/>
+	<include schemaLocation="./Types.xsd"/>
+	<annotation>
+		<documentation>
+         The base schemas contain the most basic of the FIXM data structures, and 
+         should be used by all schemas that need to represent these objects. 
       </documentation>
-   </annotation>
-
-   <complexType name="GeographicLocationType">
-      <annotation>
-         <documentation>
-            Represents a location by latitude and longitude reference. The "srsName" attribute 
-            
-            names the coordinate reference system (CRS) that defines the semantics of the 
-            lat/long pair according to the ISO6709 standard. FIXM uses only "urn:ogc:def:crs:EPSG::4326". 
-            
-         </documentation>
-      </annotation>
-      <sequence>
-         <element name="pos" minOccurs="0" maxOccurs="1" > 
-            <annotation>
-               <documentation>
-                  This list of doubles contains the latitude and longitude of the location 
-                  in order of LATITUDE FIRST, THEN LONGITUDE. 
-               </documentation>
-            </annotation>
-            <simpleType>
-               <list itemType="xs:double"/>
-            </simpleType>
-         </element>
-      </sequence>
-      <attribute name="srsName" type="xs:string" fixed="urn:ogc:def:crs:EPSG::4326" use="required" > 
-         <annotation>
-            <documentation>
-               Names the coordinate reference system (CRS) that defines the semantics of the 
-               lat/long pair according to the ISO6709 standard. FIXM uses only "urn:ogc:def:crs:EPSG::4326". 
-               
-            </documentation>
-         </annotation>
-      </attribute>
-   </complexType>
-   <element name="GeographicLocation" type="ff:GeographicLocationType" /> 
-
-   <simpleType name="LatitudeType">
-      <annotation>
-         <documentation>
-            Either dd[NS]or ddmm[NS] format. 
-         </documentation>
-      </annotation>
-      <restriction base="ff:UnitOfMeasureType"/>
-   </simpleType>
-
-   <simpleType name="LongitudeType">
-      <annotation>
-         <documentation>
-            Either ddd[EW] or dddmm[EW] format. 
-         </documentation>
-      </annotation>
-      <restriction base="ff:UnitOfMeasureType"/>
-   </simpleType>
+	</annotation>
 </schema>
