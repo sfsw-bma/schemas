@@ -68,7 +68,7 @@
 
 #####\aixm\5.1\extensions\LaminarData\FlowRegulation\FlowRegulation_Extension.xsd
 
-####REFERANCE DATA APIs
+####REFERENCE DATA APIs
 
 /airlines
 
