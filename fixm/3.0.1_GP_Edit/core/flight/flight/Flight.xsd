@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema
-   attributeFormDefault="unqualified"
-   elementFormDefault="qualified"
-   targetNamespace="http://www.fixm.aero/fixm/3.0"
-   version="3.0.1"
-   xmlns="http://www.w3.org/2001/XMLSchema"
-   xmlns:fb="http://www.fixm.aero/base/3.0"
-   xmlns:ff="http://www.fixm.aero/foundation/3.0"
-   xmlns:fx="http://www.fixm.aero/flight/3.0"
-   xmlns:xs="http://www.w3.org/2001/XMLSchema">
-   
-   <annotation>
-      <documentation>
+<schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.fixm.aero/flight/3.0" version="3.0.1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:fx="http://www.fixm.aero/flight/3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<annotation>
+		<documentation>
          Copyright (c) 2014 Airservices Australia, EUROCONTROL, JCAB, NATS Limited, NavCanada, 
          SESAR Joint Undertaking &amp; US FAA 
          =========================================== 
@@ -68,13 +58,20 @@
          Details on the US FAA: http://www.faa.gov/ 
          Details on the US FAAs NextGen program: http://www.faa.gov/NextGen 
       </documentation>
-   </annotation>
-   <import namespace="http://www.fixm.aero/base/3.0" schemaLocation="./base/Base.xsd"/>
-   <import namespace="http://www.fixm.aero/flight/3.0" schemaLocation="./flight/FlightObject.xsd"/>
-   <import namespace="http://www.fixm.aero/foundation/3.0" schemaLocation="./foundation/Foundation.xsd"/>
-   <annotation>
-      <documentation>
-         Root Package 
+	</annotation>
+	<include schemaLocation="./Arrival.xsd"/>
+	<include schemaLocation="./Departure.xsd"/>
+	<include schemaLocation="./Emergency.xsd"/>
+	<include schemaLocation="./../enroute/EnRoute.xsd"/>
+	<include schemaLocation="./FlightData.xsd"/>
+	<include schemaLocation="./FlightRoute.xsd"/>
+	<include schemaLocation="./RankedTrajectory.xsd"/>
+	<include schemaLocation="./Status.xsd"/>
+	<include schemaLocation="./Trajectory.xsd"/>
+	<annotation>
+		<documentation>
+         Flight is a central package of FIXM that groups information  including departure, 
+         arrival, emergency, flight route, flight status and  en route information. 
       </documentation>
-   </annotation>
+	</annotation>
 </schema>

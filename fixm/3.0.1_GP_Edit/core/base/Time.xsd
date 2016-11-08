@@ -7,7 +7,8 @@
    xmlns="http://www.w3.org/2001/XMLSchema"
    xmlns:fb="http://www.fixm.aero/base/3.0"
    xmlns:ff="http://www.fixm.aero/foundation/3.0"
-   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    
    <annotation>
       <documentation>
@@ -147,6 +148,8 @@
             </annotation>
          </element>
       </sequence>
+      <!--Addded xsitype attribute to allow pulication of xsi:type required for valid FIXM messages -->
+      <attribute ref="xsi:type" use="optional"/>
    </complexType>
    <element name="MultiTime" type="fb:MultiTimeType" /> 
 

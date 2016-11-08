@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema
-   attributeFormDefault="unqualified"
-   elementFormDefault="qualified"
-   targetNamespace="http://www.fixm.aero/flight/3.0"
-   version="3.0.1"
-   xmlns="http://www.w3.org/2001/XMLSchema"
-   xmlns:fb="http://www.fixm.aero/base/3.0"
-   xmlns:ff="http://www.fixm.aero/foundation/3.0"
-   xmlns:fx="http://www.fixm.aero/flight/3.0"
-   xmlns:xs="http://www.w3.org/2001/XMLSchema">
-   
-   <annotation>
-      <documentation>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:fb="http://www.fixm.aero/base/3.0" xmlns:ff="http://www.fixm.aero/foundation/3.0" xmlns:fx="http://www.fixm.aero/flight/3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.fixm.aero/flight/3.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0.1">
+	<annotation>
+		<documentation>
          Copyright (c) 2014 Airservices Australia, EUROCONTROL, JCAB, NATS Limited, NavCanada, 
          SESAR Joint Undertaking &amp; US FAA 
          =========================================== 
@@ -68,99 +58,98 @@
          Details on the US FAA: http://www.faa.gov/ 
          Details on the US FAAs NextGen program: http://www.faa.gov/NextGen 
       </documentation>
-   </annotation>
-   <import namespace="http://www.fixm.aero/base/3.0" schemaLocation="./../../base/Base.xsd"/>
-   <import namespace="http://www.fixm.aero/foundation/3.0" schemaLocation="./../../foundation/Foundation.xsd"/>
-   <annotation>
-      <documentation>
+	</annotation>
+	<import namespace="http://www.fixm.aero/base/3.0" schemaLocation="./../../base/Base.xsd"/>
+	<import namespace="http://www.fixm.aero/foundation/3.0" schemaLocation="./../../foundation/Foundation.xsd"/>
+	<annotation>
+		<documentation>
          The Arrival package contains al information about the actual arrival of the flight 
          at an airport, including approach, landing, and arrival at terminal. 
       </documentation>
-   </annotation>
-
-   <complexType name="FlightArrivalType">
-      <annotation>
-         <documentation>
+	</annotation>
+	<complexType name="FlightArrivalType">
+		<annotation>
+			<documentation>
             Arrival information linked to a flight. This information shall include: 
             * assigned runway 
             * assigned STAR procedure 
             * Missed_Approach status (Boolean) 
             * Eligibility for AMAN (Is the flight already in the scope of AMAN sequencing?) 
          </documentation>
-      </annotation>
-      <complexContent>
-         <extension base="fb:FeatureType">
-            <sequence>
-               <element name="approachFix" type="fb:SignificantPointType" minOccurs="0" maxOccurs="1" > 
-                  <annotation>
-                     <documentation>
+		</annotation>
+		<complexContent>
+			<extension base="fb:FeatureType">
+				<sequence>
+					<element name="approachFix" type="fb:SignificantPointType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>
                         .Initial Approach Fix: The point on the arrival route at which arrival sequencing 
                         activities are focused, such that, when the flight passes this point, a stable runway 
                         arrival sequence can be provided. 
                      </documentation>
-                  </annotation>
-               </element>
-               <element name="approachTime" type="fb:MultiTimeType" minOccurs="0" maxOccurs="1" > 
-                  <annotation>
-                     <documentation>
+						</annotation>
+					</element>
+					<element name="approachTime" type="fb:MultiTimeType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>
                         .Approach Time - Estimated: The shared time estimate at which the flight's final 
                         approach is expected to commence. 
                      </documentation>
-                  </annotation>
-               </element>
-               <element name="arrivalAerodrome" type="fb:AerodromeReferenceType" minOccurs="0" maxOccurs="1" > 
-                  <annotation>
-                     <documentation>
+						</annotation>
+					</element>
+					<element name="arrivalAerodrome" type="fb:AerodromeReferenceType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>
                         .Destination Aerodrome: The ICAO designator or the name of the aerodrome at which 
                         the flight is scheduled to arrive. 
                      </documentation>
-                  </annotation>
-               </element>
-               <element name="arrivalAerodromeAlternate" type="fb:AerodromeReferenceType" minOccurs="0" maxOccurs="unbounded" > 
-                  <annotation>
-                     <documentation>
+						</annotation>
+					</element>
+					<element name="arrivalAerodromeAlternate" type="fb:AerodromeReferenceType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>
                         .Destination Aerodrome - Alternate: ICAO designator or the name of an alternate aerodrome 
                         to which an aircraft may proceed, should it become either impossible or inadvisable 
                         to land at the original destination aerodrome or an alternate destination location. 
                         
                      </documentation>
-                  </annotation>
-               </element>
-               <element name="arrivalAerodromeOriginal" type="fb:AerodromeReferenceType" minOccurs="0" maxOccurs="1" > 
-                  <annotation>
-                     <documentation>
+						</annotation>
+					</element>
+					<element name="arrivalAerodromeOriginal" type="fb:AerodromeReferenceType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>
                         .Original Destination Aerodrome: The Original Destination Airport is the Destination 
                         Airport submitted when a Flight Plan was initially filed. 
                      </documentation>
-                  </annotation>
-               </element>
-               <element name="arrivalFix" type="fb:SignificantPointType" minOccurs="0" maxOccurs="1" > 
-                  <annotation>
-                     <documentation>
+						</annotation>
+					</element>
+					<element name="arrivalFix" type="fb:SignificantPointType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>
                         .Aerodrome Arrival Fix: The point at which the responsibility for control of the 
                         flight is transferred from the En Route Air Traffic Control unit (Centre, ARTCC) 
                         to the Terminal Air Traffic Control unit. 
                      </documentation>
-                  </annotation>
-               </element>
-               <element name="arrivalFixTime" type="fb:MultiTimeType" minOccurs="0" maxOccurs="1" > 
-                  <annotation>
-                     <documentation>
+						</annotation>
+					</element>
+					<element name="arrivalFixTime" type="fb:ExtendedMultiTimeType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>
                         .Arrival Fix Time - Estimated: Estimated time over the arrival fix. 
                         .Arrival Fix Time - Actual: Actual time the flight passed over the arrival fix. 
                      </documentation>
-                  </annotation>
-               </element>
-               <element name="filedRevisedDestinationAerodrome" type="fb:AerodromeReferenceType" minOccurs="0" maxOccurs="1" > 
-                  <annotation>
-                     <documentation>
+						</annotation>
+					</element>
+					<element name="filedRevisedDestinationAerodrome" type="fb:AerodromeReferenceType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>
                         Represents the filed revised destination aerodrome. 
                      </documentation>
-                  </annotation>
-               </element>
-               <element name="runwayPositionAndTime" type="fb:RunwayPositionAndTimeType" minOccurs="0" maxOccurs="1" > 
-                  <annotation>
-                     <documentation>
+						</annotation>
+					</element>
+					<element name="runwayPositionAndTime" type="fb:RunwayPositionAndTimeType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>
                         .Arrival Runway: The expected, assigned, or actual runway for an arriving flight. 
                         
                         .Runway Arrival Time - Estimated: The most reliable estimated time when an aircraft 
@@ -173,11 +162,11 @@
                         down at the runway, as a result of a tactical slot allocation or a Traffic Management 
                         Initiative. 
                      </documentation>
-                  </annotation>
-               </element>
-               <element name="standPositionAndTime" type="fb:StandPositionAndTimeType" minOccurs="0" maxOccurs="1" > 
-                  <annotation>
-                     <documentation>
+						</annotation>
+					</element>
+					<element name="standPositionAndTime" type="fb:StandPositionAndTimeType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>
                         .In-Block Time - Earliest: The earliest time an aircraft operator is able to arrive 
                         at the gate on completion of the flight, as specified by the aircraft operator when 
                         submitting the flight information. 
@@ -192,77 +181,76 @@
                         .In-Block Time - Estimated: The estimated time at which a flight will arrive at the 
                         stand. 
                      </documentation>
-                  </annotation>
-               </element>
-            </sequence>
-            <attribute name="arrivalFleetPrioritization" type="fb:FleetPriorityType" use="optional" > 
-               <annotation>
-                  <documentation>
+						</annotation>
+					</element>
+				</sequence>
+				<attribute name="arrivalFleetPrioritization" type="fb:FleetPriorityType" use="optional">
+					<annotation>
+						<documentation>
                      .Fleet Prioritization - Arrival: The relative priority of a flight, within a flight 
                      operator s fleet of aircraft, defined for a portion or the entire arrival phase of 
                      flight. 
                   </documentation>
-               </annotation>
-            </attribute>
-            <attribute name="arrivalSequenceNumber" type="fb:CountType" use="optional" > 
-               <annotation>
-                  <documentation>
+					</annotation>
+				</attribute>
+				<attribute name="arrivalSequenceNumber" type="fb:CountType" use="optional">
+					<annotation>
+						<documentation>
                      .Arrival Sequence Number: The expected sequence of the flight in the scheduling list 
                      of arriving flights. 
                   </documentation>
-               </annotation>
-            </attribute>
-            <attribute name="earliestInBlockTime" type="ff:TimeType" use="optional" > 
-               <annotation>
-                  <documentation>
+					</annotation>
+				</attribute>
+				<attribute name="earliestInBlockTime" type="ff:TimeType" use="optional">
+					<annotation>
+						<documentation>
                      .In-Block Time - Earliest: The earliest time an aircraft operator is able to arrive 
                      at the gate on completion of the flight, as specified by the aircraft operator when 
                      submitting the flight information. 
                   </documentation>
-               </annotation>
-            </attribute>
-            <attribute name="filedRevisedDestinationStar" type="fb:StandardInstrumentRouteDesignatorType" use="optional" > 
-               <annotation>
-                  <documentation>
+					</annotation>
+				</attribute>
+				<attribute name="filedRevisedDestinationStar" type="fb:StandardInstrumentRouteDesignatorType" use="optional">
+					<annotation>
+						<documentation>
                      Standard Instrument Arrival Route procedure for the revised destination. 
                   </documentation>
-               </annotation>
-            </attribute>
-            <attribute name="landingLimits" type="fx:LandingLimitsType" use="optional" > 
-               <annotation>
-                  <documentation>
+					</annotation>
+				</attribute>
+				<attribute name="landingLimits" type="fx:LandingLimitsType" use="optional">
+					<annotation>
+						<documentation>
                      .Landing Limits: The landing qualification of the flight, considering crew and equipment. 
                      
                   </documentation>
-               </annotation>
-            </attribute>
-            <attribute name="standardInstrumentArrival" type="fb:StandardInstrumentRouteDesignatorType" use="optional" > 
-               <annotation>
-                  <documentation>
+					</annotation>
+				</attribute>
+				<attribute name="standardInstrumentArrival" type="fb:StandardInstrumentRouteDesignatorType" use="optional">
+					<annotation>
+						<documentation>
                      .Standard Instrument Arrival Designator: The textual designator of the Standard Instrument 
                      Arrival (STAR). 
                   </documentation>
-               </annotation>
-            </attribute>
-         </extension>
-      </complexContent>
-   </complexType>
-   <element name="FlightArrival" type="fx:FlightArrivalType" substitutionGroup="fb:Feature" /> 
-
-   <simpleType name="LandingLimitsType">
-      <annotation>
-         <documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+	<element name="FlightArrival" type="fx:FlightArrivalType" substitutionGroup="fb:Feature"/>
+	<simpleType name="LandingLimitsType">
+		<annotation>
+			<documentation>
             .Landing Limits: The landing qualification of the flight, considering crew and equipment. 
             
          </documentation>
-      </annotation>
-      <restriction base="xs:string">
-         <enumeration value="I"/>
-         <enumeration value="II"/>
-         <enumeration value="III"/>
-         <enumeration value="IIIA"/>
-         <enumeration value="IIIB"/>
-         <enumeration value="IIIC"/>
-      </restriction>
-   </simpleType>
+		</annotation>
+		<restriction base="xs:string">
+			<enumeration value="I"/>
+			<enumeration value="II"/>
+			<enumeration value="III"/>
+			<enumeration value="IIIA"/>
+			<enumeration value="IIIB"/>
+			<enumeration value="IIIC"/>
+		</restriction>
+	</simpleType>
 </schema>
