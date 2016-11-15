@@ -1,0 +1,239 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"description": "Comment describing your JSON Schema",
+	"type": "object",
+	"properties": {
+		"features": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/FlightSummary"
+			}
+		},
+		"type": {
+			"type": "string",
+			"enum": [
+				"FeatureCollection"
+			],
+			"default": "FeatureCollection"
+		},
+		"results": {
+			"type": "object",
+			"properties": {
+				"publishTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"status": {
+					"type": "string"
+				},
+				"total": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"publishTime",
+				"status",
+				"total"
+			],
+			"additionalProperties": false
+		}
+	},
+	"additionalProperties": false,
+	"definitions": {
+		"FlightSummary": {
+			"type": "object",
+			"properties": {
+				"type": {
+					"type": "string",
+					"enum": [
+						"Feature"
+					],
+					"default": "Feature"
+				},
+				"id": {
+					"description": "The global unique identifier of a flight (gufi). ",
+					"type": "string"
+				},
+				"geometry": {
+					"description": "The latest position of the flight. ",
+					"type": [
+						"object",
+						"null"
+					],
+					"properties": {
+						"type": {
+							"description": "The type geometry for flight positions, default as point.  ",
+							"type": "string",
+							"enum": [
+								"Point"
+							],
+							"default": "Point"
+						},
+						"coordinates": {
+							"description": "The latitude/longtitude components of the flight position. ",
+							"type": "array"
+						}
+					},
+					"required": [
+						"type",
+						"coordinates"
+					],
+					"additionalProperties": false
+				},
+				"properties": {
+					"description": "A list of NOTAM properties. ",
+					"type": "object",
+					"properties": {
+						"airline": {
+							"description": "The ICAO identification of the carrier who is operating the flight, e.g. EZY.",
+							"type": "string"
+						},
+						"callsign": {
+							"description": "The defined callsign of this flight (Airline code/Flight number - AA1234).",
+							"type": "string"
+						},
+						"flightStatus": {
+							"description": "The status of a flight as per the available options: PLANNED, SCHEDULED, AIRBORNE, COMPLETED, CANCELLED.",
+							"type": "string"
+						},
+						"iataFlightNumber": {
+							"description": "The letter/number combination you are likely to see on airport screens and your ticket.",
+							"type": "string"
+						},
+						"timestampProcessed": {
+							"description": "The time at which the flight message is processed by snowflake software, present in UTC format. ",
+							"type": "string",
+							"format": "date-time"
+						},
+						"departure": {
+							"description": "Information related to the departure of the flight, ",
+							"type": "object",
+							"properties": {
+								"aerodrome": {
+									"description": "The ICAO code of the aerodrome. ",
+									"type": "object",
+									"properties": {
+										"actual": {
+											"description": "The ICAO code of the actual departure/arrival aerodrome. ",
+											"type": "string"
+										},
+										"scheduled": {
+											"description": "The ICAO code of the scheduled departure/arrival aerodrome.",
+											"type": "string"
+										}
+									},
+									"additionalProperties": false
+								},
+								"gateTime": {
+									"description": "For departure, this is pushing back time/off-block time; for arrival, this is on-block time. ",
+									"type": "object",
+									"properties": {
+										"estimated": {
+											"description": "For departure, this is estimated off-block time; for arrival, this is estimated on-block time, present in UTC format. ",
+											"type": "string",
+											"format": "date-time"
+										}
+									},
+									"additionalProperties": false
+								},
+								"runwayTime": {
+									"description": "For departure, this is the time when the aircraft takes off from the runway; for arrival, this is the time when the aircraft touches the runway.  ",
+									"type": "object",
+									"properties": {
+										"actual": {
+											"description": "The actual departure/arrival time of the flight in UTC format. ",
+											"type": "string",
+											"format": "date-time"
+										},
+										"estimated": {
+											"description": "The estimated departure/arrival time of the flight in UTC format. ",
+											"type": "string",
+											"format": "date-time"
+										},
+										"initial": {
+											"description": "The initial departure/arrival time of the flight, available before the flight took off, present in UTC format.",
+											"type": "string",
+											"format": "date-time"
+										}
+									},
+									"additionalProperties": false
+								}
+							},
+							"additionalProperties": false
+						},
+						"arrival": {
+							"description": "Information related to the arrival of the flight,",
+							"type": "object",
+							"properties": {
+								"aerodrome": {
+									"description": "The ICAO code of the aerodrome. ",
+									"type": "object",
+									"properties": {
+										"scheduled": {
+											"description": "The ICAO code for the  scheduled departure/arrival aerodrome. ",
+											"type": "string"
+										},
+										"initial": {
+											"description": "The ICAO code for the departure/arrival aerodrome before the flight took off.",
+											"type": "string"
+										}
+									},
+									"additionalProperties": false
+								},
+								"runwayTime": {
+									"description": "For departure, this is the time when the aircraft takes off from the runway; for arrival, this is the time when the aircraft touches the runway. ",
+									"type": "object",
+									"properties": {
+										"actual": {
+											"description": "The actual departure/arrival time of the flight in UTC format. ",
+											"type": "string",
+											"format": "date-time"
+										},
+										"initial": {
+											"description": "The initial departure/arrival time of the flight, available before the flight took off, present in UTC format.",
+											"type": "string",
+											"format": "date-time"
+										},
+										"estimated": {
+											"description": "The estimated departure/arrival time of the flight in UTC format. ",
+											"type": "string",
+											"format": "date-time"
+										}
+									},
+									"additionalProperties": false
+								}
+							},
+							"additionalProperties": false
+						},
+						"positionReport": {
+							"description": "Information related to the lastest position of the flight. ",
+							"type": "object",
+							"properties": {
+								"source": {
+									"description": "The name of the source of this data.",
+									"type": "string"
+								},
+								"track": {
+									"description": "The direction the Flight is heading in. The value should be provided in degrees.",
+									"type": "number"
+								},
+								"altitude": {
+									"description": "The altitude of a Flight. The value should be provided in feet.",
+									"type": "number"
+								},
+								"captureTimestamp": {
+									"description": "The time at which the flight position is captured, present in UTC format.",
+									"type": "string",
+									"format": "date-time"
+								}
+							},
+							"additionalProperties": false
+						}
+					},
+					"additionalProperties": false
+				}
+			},
+			"additionalProperties": false
+		}
+	}
+}

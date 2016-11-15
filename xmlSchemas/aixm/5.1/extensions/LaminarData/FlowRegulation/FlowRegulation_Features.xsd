@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--====================================================================-->
+<!-- Copyright (C) 2016 Snowflake Software Ltd. All rights reserved. -->
+<!--====================================================================-->
+<schema xmlns:ld="http://schemas.laminardata.aero/regulation/1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:aixm="http://www.aixm.aero/schema/5.1" targetNamespace="http://schemas.laminardata.aero/regulation/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="../../../../gml/3.2.1/gml.xsd"/>
+	<import namespace="http://www.w3.org/1999/xlink" schemaLocation="../../../../xlink/1.0.0/xlinks.xsd"/>
+	<import namespace="http://www.aixm.aero/schema/5.1" schemaLocation="../../../core/AIXM_Features.xsd"/>
+	<include schemaLocation="FlowRegulation_DataTypes.xsd"/>
+	<complexType name="FlowRegulationPropertyType">
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+	</complexType>
+	<element name="FlowRegulation" type="ld:FlowRegulationType" substitutionGroup="aixm:AbstractAIXMFeature">
+		<annotation>
+			<appinfo>
+				<gml:description>An operational scenario put in place in order to meet the demands of events which may cause congestion or have a major impact on air traffic flow, while not exceeding capacity.</gml:description>
+			</appinfo>
+		</annotation>
+	</element>
+	<complexType name="FlowRegulationType">
+		<complexContent>
+			<extension base="aixm:AbstractAIXMFeatureType">
+				<sequence>
+					<element name="timeSlice" type="ld:FlowRegulationTimeSlicePropertyType" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="FlowRegulationTimeSlicePropertyType">
+		<sequence>
+			<element ref="ld:FlowRegulationTimeSlice"/>
+		</sequence>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="FlowRegulationTimeSlice" type="ld:FlowRegulationTimeSliceType" substitutionGroup="gml:AbstractTimeSlice"/>
+	<complexType name="FlowRegulationTimeSliceType">
+		<complexContent>
+			<extension base="aixm:AbstractAIXMTimeSliceType">
+				<sequence>
+					<group ref="ld:FlowRegulationPropertyGroup"/>
+					<element name="extension" minOccurs="0" maxOccurs="unbounded">
+						<complexType>
+							<sequence>
+								<element ref="ld:AbstractFlowRegulationExtension"/>
+							</sequence>
+							<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+						</complexType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<group name="FlowRegulationPropertyGroup">
+		<sequence>
+			<element name="identifier" type="ld:FlowRegulationIdentifierType" nillable="true" minOccurs="0">
+				<annotation>
+					<appinfo>
+						<gml:description>The identifier of the regulation.</gml:description>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="issued" type="aixm:DateTimeType" nillable="true" minOccurs="0">
+				<annotation>
+					<appinfo>
+						<gml:description>The date and time when the regulation was issued.</gml:description>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="reason" type="ld:CodeFlowRegulationReasonType" nillable="true" minOccurs="0">
+				<annotation>
+					<appinfo>
+						<gml:description>The reason that triggered the creation of the regulation.</gml:description>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="state" type="ld:CodeFlowRegulationStateType" nillable="true" minOccurs="0">
+				<annotation>
+					<appinfo>
+						<gml:description>The state of the regulation.</gml:description>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="trafficVolume" type="ld:TrafficVolumePropertyType" nillable="true" minOccurs="0">
+				<annotation>
+					<appinfo>
+						<gml:description>The traffic volume to which the regulation applies.</gml:description>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="remark" type="aixm:Character2Type" nillable="true" minOccurs="0">
+				<annotation>
+					<appinfo>
+						<gml:description>Any further remarks by the Network Manager that typically provides some more details about the reason of the regulation and refers to any NOTAM if applicable.</gml:description>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="noDelayWindow" type="ld:DurationHourMinuteType" nillable="true" minOccurs="0">
+				<annotation>
+					<appinfo>
+						<gml:description>A time window around the estimated time over the location to which the regulation applies, within which the regulation does not delay the flight. In certain cases, this is the window around the calculated time over the location.</gml:description>
+					</appinfo>
+				</annotation>
+			</element>
+		</sequence>
+	</group>
+	<element name="AbstractFlowRegulationExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
+	<complexType name="TrafficVolumePropertyType">
+		<complexContent>
+			<extension base="aixm:AbstractAIXMPropertyType">
+				<sequence>
+					<element ref="ld:TrafficVolume"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<element name="TrafficVolume" type="ld:TrafficVolumeType">
+		<annotation>
+			<appinfo>
+				<gml:description>A traffic volume.</gml:description>
+			</appinfo>
+		</annotation>
+	</element>
+	<complexType name="TrafficVolumeType">
+		<complexContent>
+			<extension base="aixm:AbstractAIXMObjectType">
+				<sequence>
+					<group ref="ld:TrafficVolumePropertyGroup"/>
+					<element name="extension" minOccurs="0" maxOccurs="unbounded">
+						<complexType>
+							<sequence>
+								<element ref="ld:AbstractTrafficVolumeExtension"/>
+							</sequence>
+							<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+						</complexType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<group name="TrafficVolumePropertyGroup">
+		<sequence>
+			<element name="trafficVolumeIdentifier" type="ld:TrafficVolumeIdentifierType" nillable="true" minOccurs="0">
+				<annotation>
+					<appinfo>
+						<gml:description>The traffic volume for which the regulation applies.</gml:description>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="flightLevel" type="ld:TrafficVolumeLevelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<appinfo>
+						<gml:description>The flight level range of the traffic volume.</gml:description>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="locationType" type="ld:CodeTrafficVolumeType" nillable="true" minOccurs="0">
+				<annotation>
+					<appinfo>
+						<gml:description>The type of the traffic volume location.</gml:description>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="locationIndicatorICAO" type="aixm:CodeICAOType" nillable="true" minOccurs="0">
+				<annotation>
+					<appinfo>
+						<gml:description>The ICAO code of the reference location of the traffic volume.</gml:description>
+					</appinfo>
+				</annotation>
+			</element>
+			<element name="description" type="aixm:Character2Type" nillable="true" minOccurs="0">
+				<annotation>
+					<appinfo>
+						<gml:description>The traffic volume description.</gml:description>
+					</appinfo>
+				</annotation>
+			</element>
+		</sequence>
+	</group>
+	<element name="AbstractTrafficVolumeExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
+	<complexType name="TrafficVolumeLevelPropertyType">
+		<complexContent>
+			<extension base="aixm:AbstractAIXMPropertyType">
+				<sequence>
+					<element ref="ld:TrafficVolumeLevel"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<element name="TrafficVolumeLevel" type="ld:TrafficVolumeLevelType"/>
+	<complexType name="TrafficVolumeLevelType">
+		<complexContent>
+			<extension base="aixm:AbstractAIXMObjectType">
+				<sequence>
+					<group ref="ld:TrafficVolumeLevelPropertyGroup"/>
+					<element name="extension" minOccurs="0" maxOccurs="unbounded">
+						<complexType>
+							<sequence>
+								<element ref="ld:AbstractTrafficVolumeLevelExtension"/>
+							</sequence>
+							<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+						</complexType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<group name="TrafficVolumeLevelPropertyGroup">
+		<sequence>
+			<element name="upperLevel" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="upperLevelReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="lowerLevel" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="lowerLevelReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</group>
+	<element name="AbstractTrafficVolumeLevelExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
+</schema>
