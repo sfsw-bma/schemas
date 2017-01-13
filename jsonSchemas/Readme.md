@@ -12,3 +12,7 @@
 
 #####/flight_summary_geojson_schema.json
 
+/flights/{gufi}
+
+#####flights_by_gufi_geojson_schema.json
+
