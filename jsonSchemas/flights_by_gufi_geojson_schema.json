@@ -130,7 +130,7 @@
                   "format": "date-time"
                 },
                 "speed": {
-                  "description": "The speed of the flight.",
+                  "description": "The speed of the flight. Measured in feet.",
                   "type": "integer"
                 }
               },
@@ -197,12 +197,12 @@
                 "type": "string"
               },
               "requestedAltitude": {
-                "description": "The cruise altitude filed or requested for the proposed flight.",
+                "description": "The cruise altitude filed or requested for the proposed flight. Measured in feet.",
                 "title": "Requested Altitude",
                 "type": "integer"
               },
               "initialCruisingSpeed": {
-                "description": "The true airspeed for the first or the whole cruising portion of the flight. This can be for a filed flight or an active flight. This element is strategic in nature.",
+                "description": "The true airspeed for the first or the whole cruising portion of the flight. This can be for a filed flight or an active flight. This element is strategic in nature. Measured in knots.",
                 "title": "Initial Cruising Speed",
                 "type": "number"
               },
