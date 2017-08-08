@@ -69,7 +69,6 @@
 	<include schemaLocation="./Status.xsd"/>
 	<include schemaLocation="./Trajectory.xsd"/>
 	<import namespace="http://www.fixm.aero/base/3.0" schemaLocation="./../../base/Base.xsd"/>
-	<import namespace="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="./../../../../../xsi.xsd"/>
 	<import namespace="http://www.fixm.aero/foundation/3.0" schemaLocation="./../../foundation/Foundation.xsd"/>
 	<annotation>
 		<documentation>
@@ -381,7 +380,6 @@
             </documentation>
 			</annotation>
 		</attribute>
-		<!-- Added flight number attribute -->
 		<attribute name="iataFlightNumber" type="fb:IataFlightNumberType" use="optional">
 			<annotation>
 				<documentation>
@@ -389,6 +387,7 @@
             </documentation>
 			</annotation>
 		</attribute>
+		<!-- Added flight number attribute -->
 	</complexType>
 	<element name="FlightIdentification" type="fx:FlightIdentificationType"/>
 	<simpleType name="OperatorCategoryType">
@@ -509,7 +508,7 @@
 			<enumeration value="OTHER"/>
 		</restriction>
 	</simpleType>
-		<complexType name="ActualRouteType">
+	<complexType name="ActualRouteType">
 		<sequence>
 			<element name="position" type="fx:AircraftPositionType" maxOccurs="unbounded"/>
 		</sequence>

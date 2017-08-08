@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:fb="http://www.fixm.aero/base/3.0" xmlns:ff="http://www.fixm.aero/foundation/3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.fixm.aero/base/3.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:fb="http://www.fixm.aero/base/3.0" xmlns:ff="http://www.fixm.aero/foundation/3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.fixm.aero/base/3.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0.1">
 	<include schemaLocation="./Location.xsd"/>
 	<include schemaLocation="./Time.xsd"/>
-	<import namespace="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="./../../../../xsi.xsd" />
 	<import namespace="http://www.fixm.aero/foundation/3.0" schemaLocation="./../foundation/Foundation.xsd"/>
 	<complexType name="AerodromeReferenceType" abstract="true">
 		<sequence>
@@ -10,7 +9,6 @@
 		</sequence>
 		<attribute name="code" type="ff:AerodromeIcaoCodeType" use="optional"/>
 		<attribute name="name" type="ff:AerodromeNameType" use="optional"/>
-		<attribute ref="xsi:type" use="optional"/>
 		<!--Addded xsitype attribute to allow pulication of xsi:type required for valid FIXM messages -->
 	</complexType>
 	<element name="AerodromeReference" type="fb:AerodromeReferenceType"/>

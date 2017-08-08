@@ -163,7 +163,7 @@
                      </documentation>
                   </annotation>
                </element>
-               <element name="departureFixTime" type="fb:ExtendedMultiTimeType" minOccurs="0" maxOccurs="1" > 
+               <element name="departureFixTime" type="fb:MultiTimeType" minOccurs="0" maxOccurs="1" > 
                   <annotation>
                      <documentation>
                         .Departure Fix Time - Estimated: The estimated time the flight is over the departure 

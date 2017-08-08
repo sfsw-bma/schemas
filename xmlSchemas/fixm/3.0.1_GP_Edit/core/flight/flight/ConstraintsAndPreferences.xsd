@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ff="http://www.fixm.aero/foundation/3.0" xmlns:fx="http://www.fixm.aero/flight/3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.fixm.aero/flight/3.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ff="http://www.fixm.aero/foundation/3.0" xmlns:fx="http://www.fixm.aero/flight/3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.fixm.aero/flight/3.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0.1">
 	<import namespace="http://www.fixm.aero/foundation/3.0" schemaLocation="./../../foundation/Foundation.xsd"/>
-	<import namespace="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="./../../../../../xsi.xsd" />
 	<simpleType name="AltitudeQualifierType">
 		<restriction base="xs:string">
 			<enumeration value="AT_OR_ABOVE_ALTITUDE"/>
@@ -61,7 +60,6 @@
 		<attribute name="altitudeQualification" type="fx:AltitudeQualifierType" use="optional"/>
 		<attribute name="constraintType" type="fx:ConstraintOrPreferenceCategoryType" use="optional"/>
 		<!--Addded xsitype attribute to allow pulication of xsi:type required for valid FIXM messages -->
-		<attribute ref="xsi:type" use="optional"/>
 		<!-- The below attribute is duplicated so one has been removed -->
 		<!--<attribute name="positionQualification" type="fx:PositionQualifierType" use="optional"/>-->
 	</complexType>
