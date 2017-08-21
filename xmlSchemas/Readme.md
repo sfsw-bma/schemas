@@ -8,7 +8,7 @@
 
 ##### This bundle contains all the schemas you will need to get started developing against the XML endpoints of the Laminar Data APIs, including both source and reference schemas.
 
-##### The FIXM schemas are NOT original FIXM they have minor additions so that we can provide extra data in a similar format, for example the Iata Flight Number.
+##### The FIXM schemas are NOT original FIXM they have minor additions so that we can provide extra data in a similar format, for example the Iata Flight Number and the Flight Plan Timestamp
 
 ## Example Usage:
 
