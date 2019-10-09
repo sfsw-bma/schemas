@@ -143,7 +143,9 @@
       "required": [
         "id",
         "featureType",
-        "type"
+        "type",
+        "properties",
+        "geometry"
       ],
       "additionalProperties": false
     },
@@ -248,6 +250,11 @@
                         "type": "string",
                         "format": "date-time"
                       },
+                      "calculated": {
+                        "description": "The calculated departure time of the flight in UTC format. ",
+                        "type": "string",
+                        "format": "date-time"
+                      },
                       "estimated": {
                         "description": "The estimated departure/arrival time of the flight in UTC format. ",
                         "type": "string",
@@ -260,6 +267,47 @@
                       }
                     },
                     "additionalProperties": false
+                  },
+                  "taxiTime": {
+                  	"description": "The taxi out time",
+                  	"type": "string"
+                  },
+                  "targetTime": {
+                  	"description": "The A-CDM derived target times for the departure. ",
+                  	"type": "object",
+                  	"properties": {
+                  		"startupApproval": {
+                  		"description": "The target time for ATC start-up approval of the flight in UTC format. ",
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "offBlock": {
+                        "description": "The target off-block time of the flight from the airline operator in UTC format. ",
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "earlyTakeOff": {
+                        "description": "The early target take-off time of the flight from the airline operator in UTC format. ",
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "aoTakeoff": {
+                        "description": "The target take-off time of the flight from the airline operator accounting for airport constraints in UTC format. ",
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "sequencedTakeoff": {
+                        "description": "The sequenced take-off time of the flight from the airline operator accounting for airport and ATM constraints in UTC format. ",
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "atcTakeoff": {
+                        "description": "The target take-off time of the flight from air traffic control in UTC format. ",
+                        "type": "string",
+                        "format": "date-time"
+                      }
+                  	},
+                  	"additionalProperties": false
                   }
                 },
                 "additionalProperties": false
@@ -359,7 +407,9 @@
       "required": [
         "id",
         "featureType",
-        "type"
+        "type",
+        "properties",
+        "geometry"
       ],
       "additionalProperties": false
     },
@@ -407,7 +457,9 @@
       "required": [
         "id",
         "featureType",
-        "type"
+        "type",
+        "properties",
+        "geometry"
       ],
       "additionalProperties": false
     }

@@ -1,0 +1,327 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Schema outlining the response of the Flight Plans by Airline Json response",
+    "type": "object",
+    "properties": {
+        "features": {
+            "type": "array",
+            "items": [
+                {
+                    "$ref": "#/definitions/FlightPlan"
+                }
+            ]
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "FeatureCollection"
+            ],
+            "default": "FeatureCollection"
+        },
+        "results": {
+            "type": "object",
+            "properties": {
+                "publishTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "total": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "publishTime",
+                "status",
+                "total"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "definitions": {
+        "gufi": {
+            "description": "The global unique identifier of a flight (gufi).",
+            "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+            "type": "string"
+        },
+        "FlightPlan": {
+            "type": "object",
+            "properties": {
+                "featureType": {
+                    "type": "string",
+                    "enum": [
+                        "flightPosition"
+                    ]
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "default": "Feature"
+                },
+                "geometry": {
+                    "description": "The latest position of the flight.",
+                    "type": [
+                        "object",
+                        "null"
+                    ],
+                    "properties": {
+                        "type": {
+                            "description": "The type geometry for flight positions, default as point. ",
+                            "type": "string",
+                            "enum": [
+                                "LineString"
+                            ],
+                            "default": "Point"
+                        },
+                        "coordinates": {
+                            "description": "The latitude/longtitude components of the flight position.",
+                            "type": "array"
+                        }
+                    }
+                },
+                "properties": {
+                    "additionalProperties": false,
+                    "type": "object",
+                    "properties": {
+                        "gufi": {
+                            "$ref": "#/definitions/gufi"
+                        },
+                        "route": {
+                            "description": "The planned route information",
+                            "additionalProperties": false,
+                            "type": "object",
+                            "properties": {
+                                "routeText": {
+                                    "description": "The ICAO route string as depicted from the flight plan.",
+                                    "title": "Route Text",
+                                    "type": "string"
+                                },
+                                "requestedAltitude": {
+                                    "description": "The cruise altitude filed or requested for the proposed flight. Measured in feet.",
+                                    "title": "Requested Altitude",
+                                    "type": "integer"
+                                },
+                                "initialCruisingSpeed": {
+                                    "description": "The true airspeed for the first or the whole cruising portion of the flight. This can be for a filed flight or an active flight. This element is strategic in nature. Measured in knots.",
+                                    "title": "Initial Cruising Speed",
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "departure": {
+                            "description": "Information related to the departure of the flight, ",
+                            "type": "object",
+                            "properties": {
+                                "aerodrome": {
+                                    "description": "The ICAO code of the aerodrome.",
+                                    "type": "object",
+                                    "properties": {
+                                        "actual": {
+                                            "description": "The ICAO code of the actual departure aerodrome.",
+                                            "type": "string"
+                                        },
+                                        "planned": {
+                                            "description": "The ICAO code of the planned departure aerodrome.",
+                                            "type": "string"
+                                        },
+                                        "scheduled": {
+                                            "description": "The ICAO code of the scheduled departure aerodrome.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "times": {
+                                    "description": "Departure Times",
+                                    "type": "object",
+                                    "properties": {
+                                        "aobt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "atot": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "cobt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "ctot": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "eobt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "etot": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "ptot": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "sobt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "tobt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "tsat": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "ttot": {
+                                            "type": "object",
+                                            "properties": {
+                                                "ao": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                },
+                                                "atc": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                },
+                                                "early": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                },
+                                                "sequenced": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "taxiTime": {
+                                    "description": "The taxi out time",
+                                    "type": "number"
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "arrival": {
+                            "description": "Information related to the arrival of the flight,",
+                            "type": "object",
+                            "properties": {
+                                "aerodrome": {
+                                    "description": "The ICAO code of the aerodrome.",
+                                    "type": "object",
+                                    "properties": {
+                                        "scheduled": {
+                                            "description": "The ICAO code for the scheduled arrival aerodrome.",
+                                            "type": "string"
+                                        },
+                                        "planned": {
+                                            "description": "The ICAO code for the planned arrival aerodrome.",
+                                            "type": "string"
+                                        },
+                                        "actual": {
+                                            "description": "The ICAO code for the actual arrival aerodrome.",
+                                            "type": "string"
+                                        },
+                                        "alternate1": {
+                                            "description": "The ICAO code for the alternate1 arrival aerodrome.",
+                                            "type": "string"
+                                        },
+                                        "alternate2": {
+                                            "description": "The ICAO code for the alternate1 arrival aerodrome.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "times": {
+                                    "description": "Arrival Times.",
+                                    "type": "object",
+                                    "properties": {
+                                        "aibt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "aldt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "eibt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "eldt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "pldt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "sibt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "carrier": {
+                            "description": "The ICAO identification of the carrier who is operating the flight, e.g. EZY.",
+                            "type": "string"
+                        },
+                        "callsign": {
+                            "description": "The defined callsign of this flight (Airline code/Flight number - AA1234).",
+                            "type": "string"
+                        },
+                        "squawk": {
+                            "type": "string"
+                        },
+                        "iataTicketNumber": {
+                            "description": "The letter/number combination you are likely to see on airport screens and your ticket.",
+                            "type": "string"
+                        },
+                        "status": {
+                            "description": "The status of a flight as per the available options: PLANNED, SCHEDULED, AIRBORNE, COMPLETED, CANCELLED.",
+                            "type": "string"
+                        },
+                        "registration": {
+                            "description": "The flight registration.",
+                            "type": "string"
+                        },
+                        "aircraftType": {
+                            "description": "The ICAO model identifier",
+                            "type": "string"
+                        },
+                        "wakeTurbulenceCategory": {
+                            "description": "The ICAO wake turbulence category (WTC) based on the maximum certificated take-off mass. H: (Heavy) aircraft types of 136 000 kg (300 000 lb) or more; M: (Medium) aircraft types less than 136 000 kg (300 000 lb) and more than 7 000 kg (15 500 lb); L: (Light) aircraft types of 7 000 kg (15 500 lb) or less",
+                            "title": "Weight Turbulence Category",
+                            "type": "string",
+                            "enum": [
+                                "L",
+                                "M",
+                                "H",
+                                "J"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "properties",
+                "type"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

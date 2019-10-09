@@ -110,6 +110,50 @@
 							"type": "string",
 							"format": "date-time"
 						},
+						"over":{
+							"description": "Information related to the current FIR of the aircraft",
+							"type": "object",
+							"properties": {
+								"FIR": {
+										"type": "string",
+										"description": "The current FIR Region icao code"
+									}
+						}
+						},
+						"enRouteTimes": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"region": {
+										"type": "string",
+										"description": "The FIR Region icao code"
+									},
+									"entryTime": {
+										"type": "object",
+										"properties": {
+											"estimated": {
+												"type": "string",
+												"description": "An explanation about the purpose of this instance."
+											},
+											"actual": {
+												"type": "string",
+												"description": "An explanation about the purpose of this instance."
+											}
+										}
+									},
+									"elapsedTime": {
+										"type": "object",
+										"properties": {
+											"estimated": {
+												"type": "number",
+												"description": "An explanation about the purpose of this instance."
+											}
+										}
+									}
+								}
+							}
+						},
 						"departure": {
 							"description": "Information related to the departure of the flight, ",
 							"type": "object",
@@ -120,6 +164,10 @@
 									"properties": {
 										"actual": {
 											"description": "The ICAO code of the actual departure/arrival aerodrome. ",
+											"type": "string"
+										},
+										"estimated": {
+											"description": "The ICAO code of the aerodrome we expect the flight to depart/departed from. ",
 											"type": "string"
 										},
 										"scheduled": {
@@ -159,6 +207,11 @@
 											"description": "The initial departure/arrival time of the flight, available before the flight took off, present in UTC format.",
 											"type": "string",
 											"format": "date-time"
+										},
+										"scheduled": {
+											"description": "The scheduled departure/arrival time of the flight, available before the flight took off, present in UTC format.",
+											"type": "string",
+											"format": "date-time"
 										}
 									},
 									"additionalProperties": false
@@ -181,6 +234,10 @@
 										"initial": {
 											"description": "The ICAO code for the departure/arrival aerodrome before the flight took off.",
 											"type": "string"
+										},
+										"estimated": {
+											"description": "The ICAO code for the aerodrome we expect the flight to arrive at.",
+											"type": "string"
 										}
 									},
 									"additionalProperties": false
@@ -196,6 +253,11 @@
 										},
 										"initial": {
 											"description": "The initial departure/arrival time of the flight, available before the flight took off, present in UTC format.",
+											"type": "string",
+											"format": "date-time"
+										},
+										"scheduled": {
+											"description": "The scheduled departure/arrival time of the flight, available before the flight took off, present in UTC format.",
 											"type": "string",
 											"format": "date-time"
 										},
@@ -230,6 +292,21 @@
 									"description": "The time at which the flight position is captured, present in UTC format.",
 									"type": "string",
 									"format": "date-time"
+								}
+							},
+							"additionalProperties": false
+						},
+						"aircraftDescription": {
+							"description": "Information related to the aircraft. ",
+							"type": "object",
+							"properties": {
+								"aircraftCode": {
+									"description": "The icao code of the aircraft type.",
+									"type": "string"
+								},
+								"aircraftRegistration": {
+									"description": "The unique registration of the aircraft.",
+									"type": "string"
 								}
 							},
 							"additionalProperties": false
