@@ -227,6 +227,10 @@
                     },
                     "additionalProperties": false
                   },
+                  "gate": {
+                    "description": "The departure gate number assigned to the flight",
+                    "type": "string"
+                  },
                   "gateTime": {
                     "description": "For departure, this is pushing back time/off-block time; for arrival, this is on-block time. ",
                     "type": "object",
@@ -352,6 +356,10 @@
                       }
                     },
                     "additionalProperties": false
+                  },
+                  "gate": {
+                    "description": "The arrival gate number assigned to the flight",
+                    "type": "string"
                   },
                   "gateTime": {
                     "description": "For departure, this is pushing back time/off-block time; for arrival, this is on-block time. ",
