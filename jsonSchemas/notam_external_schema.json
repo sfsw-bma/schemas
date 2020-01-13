@@ -1,0 +1,487 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "title": "The Type Schema ",
+      "default": "",
+      "examples": [
+        "FeatureCollection"
+      ]
+    },
+    "features": {
+      "type": "array",
+      "title": "The Features Schema ",
+      "default": "",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "The Features Id Schema",
+            "default": "",
+            "examples": [
+              "116128c3-2fbd-4edc-895f-85c21ceae545"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "title": "The Features Type Schema ",
+            "default": "Feature",
+            "examples": [
+              "Feature"
+            ]
+          },
+          "geometry": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "title": "The Type Schema ",
+                "default": "",
+                "examples": [
+                  "GeometryCollection"
+                ]
+              },
+              "geometries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "The Type Schema ",
+                      "default": "",
+                      "examples": [
+                        "Polygon"
+                      ]
+                    },
+                    "lowerLimit": {
+                      "type": "object",
+                      "properties": {
+                        "uom": {
+                          "type": "string",
+                          "title": "The Uom Schema ",
+                          "default": "",
+                          "examples": [
+                            "FEET"
+                          ]
+                        },
+                        "value": {
+                          "type": "integer",
+                          "title": "The Value Schema ",
+                          "default": 0,
+                          "examples": [
+                            5000
+                          ]
+                        },
+                        "reference": {
+                          "type": "string",
+                          "title": "The Reference Schema ",
+                          "default": "",
+                          "examples": [
+                            "AGL"
+                          ]
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "upperLimit": {
+                      "type": "object",
+                      "properties": {
+                        "uom": {
+                          "type": "string",
+                          "title": "The Uom Schema ",
+                          "default": "",
+                          "examples": [
+                            "FEET"
+                          ]
+                        },
+                        "value": {
+                          "type": "integer",
+                          "title": "The Value Schema ",
+                          "default": 0,
+                          "examples": [
+                            15000
+                          ]
+                        },
+                        "reference": {
+                          "type": "string",
+                          "title": "The Reference Schema ",
+                          "default": "",
+                          "examples": [
+                            "AMSL"
+                          ]
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "coordinates": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "number",
+                            "title": "The 0th Schema ",
+                            "default": 0,
+                            "examples": [
+                              122.38795471191406,
+                              -38.26834487915039
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "properties": {
+            "type": "object",
+            "properties": {
+              "lat": {
+                "type": "number",
+                "title": "The Lat Schema ",
+                "default": 0,
+                "examples": [
+                  33.96670150756836
+                ]
+              },
+              "lon": {
+                "type": "number",
+                "title": "The Lon Schema ",
+                "default": 0,
+                "examples": [
+                  -117.63330078125
+                ]
+              },
+              "text": {
+                "type": "string",
+                "title": "The Text Schema ",
+                "default": "",
+                "examples": [
+                  "OBST TOWER LGT (ASN 2011-AWP-7801-OE) 335955N1173935W (1.9NM NW CNO) 878FT (190FT AGL) OUT OF SERVICE"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "title": "The Type Schema ",
+                "default": "",
+                "examples": [
+                  "N"
+                ]
+              },
+              "year": {
+                "type": "integer",
+                "title": "The Year Schema ",
+                "default": 0,
+                "examples": [
+                  2018
+                ]
+              },
+              "scope": {
+                "type": "string",
+                "title": "The Scope Schema ",
+                "default": "",
+                "examples": [
+                  "E"
+                ]
+              },
+              "issued": {
+                "type": "string",
+                "title": "The Issued Schema ",
+                "default": "",
+                "examples": [
+                  "2018-04-15T17:14:00Z"
+                ]
+              },
+              "number": {
+                "type": "integer",
+                "title": "The Number Schema ",
+                "default": 0,
+                "examples": [
+                  34
+                ]
+              },
+              "radius": {
+                "type": "integer",
+                "title": "The Radius Schema ",
+                "default": 0,
+                "examples": [
+                  34
+                ]
+              },
+              "purpose": {
+                "type": "string",
+                "title": "The Purpose Schema ",
+                "default": "",
+                "examples": [
+                  "M"
+                ]
+              },
+              "traffic": {
+                "type": "string",
+                "title": "The Traffic Schema ",
+                "default": "",
+                "examples": [
+                  "IV"
+                ]
+              },
+              "location": {
+                "type": "string",
+                "title": "The Location Schema ",
+                "default": "",
+                "examples": [
+                  "KCNO"
+                ]
+              },
+              "maximumFL": {
+                "type": "integer",
+                "title": "The Maximumfl Schema ",
+                "default": 0,
+                "examples": [
+                  999
+                ]
+              },
+              "minimumFL": {
+                "type": "integer",
+                "title": "The Minimumfl Schema ",
+                "default": 0,
+                "examples": [
+                  0
+                ]
+              },
+              "affectedFIR": {
+                "type": "string",
+                "title": "The Affectedfir Schema ",
+                "default": "",
+                "examples": [
+                  "EGXX"
+                ]
+              },
+              "effectiveEnd": {
+                "type": "string",
+                "title": "The Effectiveend Schema ",
+                "default": "",
+                "examples": [
+                  "2018-04-30T17:14:00Z"
+                ]
+              },
+              "publisherNOF": {
+                "type": "string",
+                "title": "The Publishernof Schema ",
+                "default": "",
+                "examples": [
+                  "CNO"
+                ]
+              },
+              "translations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "The Type Schema ",
+                      "default": "",
+                      "examples": [
+                        "OTHER_ICAO"
+                      ]
+                    },
+                    "language": {
+                      "type": "string",
+                      "title": "The Language Schema ",
+                      "default": "",
+                      "examples": [
+                        "DUTCH"
+                      ]
+                    },
+                    "formattedText": {
+                      "type": "string",
+                      "title": "The Formatted Text Schema ",
+                      "default": "",
+                      "examples": [
+                        "<html:div xmlns=\"http://www.aixm.aero/schema/5.1/message\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:html=\"http://www.w3.org/1999/xhtml\">04/034 NOTAMN&lt;br/&gt;\n                                            &lt;b&gt;Q) &lt;/b&gt;ZLA/QOLAS/IV/M/E/000/878/3358N11738W005&lt;br/&gt;\n                                            &lt;b&gt;A) &lt;/b&gt;KCNO&lt;br/&gt;\n                                            &lt;b&gt;B) &lt;/b&gt;1804151714&lt;br/&gt;\n                                            &lt;b&gt;C) &lt;/b&gt;1804301714&lt;br/&gt;\n                                            &lt;b&gt;E) &lt;/b&gt;OBST TOWER 263.4 ( [190*0.3] AGL) 1.9 NW LGTS OUT OF SERVICE (ASN 2011-AWP-7801-OE)&lt;br/&gt;\n                                        </html:div>\n                                    "
+                      ]
+                    },
+                    "simpleText": {
+                      "type": "string",
+                      "title": "The Simple Text Schema ",
+                      "examples": [
+                        "!CNO 04/034 CNO OBST TOWER LGT (ASN 2011-AWP-7801-OE) 335955N1173935W (1.9NM NW CNO) 878FT (190FT AGL) OUT OF SERVICE 1804151714-1804301714"
+                      ]
+                    }
+                  }
+                }
+              },
+              "schedule": {
+                "type": "string",
+                "title": "The Schedule Schema ",
+                "default": "",
+                "examples": [
+                  "DAILY 1400 TO 1500"
+                ]
+              },
+              "schedules": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "frequency": {
+                      "type": "string",
+                      "title": "The Schedule Frequency Schema ",
+                      "default": "",
+                      "examples": [
+                        "DAILY"
+                      ]
+                    },
+                    "startDate": {
+                      "type": "string",
+                      "title": "The Schedule start date Schema ",
+                      "default": "",
+                      "examples": [
+                        "2018-10-10"
+                      ]
+                    },
+                    "startTime": {
+                      "type": "string",
+                      "title": "The Schedule start time Schema ",
+                      "default": "",
+                      "examples": [
+                        "16:00:00"
+                      ]
+                    },
+                    "endDate": {
+                      "type": "string",
+                      "title": "The Schedule end date Schema ",
+                      "default": "",
+                      "examples": [
+                        "2018-11-10"
+                      ]
+                    },
+                    "endTime": {
+                      "type": "string",
+                      "title": "The Schedule end time Schema ",
+                      "default": "",
+                      "examples": [
+                        "19:30:00"
+                      ]
+                    }
+                  }
+                }
+              },
+              "qcode": {
+                "type": "string",
+                "title": "The QCode Schema ",
+                "default": "",
+                "examples": [
+                  "QGAAU"
+                ]
+              },
+              "effectiveStart": {
+                "type": "string",
+                "title": "The Effectivestart Schema ",
+                "default": "",
+                "examples": [
+                  "2018-04-15T17:14:00Z"
+                ]
+              },
+              "affectedAerodrome": {
+                "type": "string",
+                "title": "The Affected Aerodrome Schema ",
+                "default": "",
+                "examples": [
+                  "EGLL"
+                ]
+              },
+              "relationship": {
+                "type": "object",
+                "properties": {
+                  "affectedFIR": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "title": "The Relationship Affected FIR ID Schema ",
+                        "examples": [
+                          "EGLL"
+                        ]
+                      },
+                      "href": {
+                        "type": "string",
+                        "title": "The Relationship Affected FIR HREF Schema "
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "metadata": {
+                "type": "object",
+                "title": "NOTAM property metadata",
+                "properties": {
+                    "geometrySources": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "title": "Geometry Data Source",
+                            "examples": [
+                                "text",
+                                "text_and_eaip",
+                                "point_and_radius",
+                                "text_and_ai",
+                                "faa_dnotam_aixm"
+                            ]
+                        }
+                    }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "results": {
+      "type": "object",
+      "title": "The Results Schema ",
+      "properties": {
+        "publishTime": {
+          "type": "string",
+          "title": "The Results Publish Time Schema",
+          "examples": [
+            "2018-07-30T11:30:31.025Z"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "title": "The Results Status Schema",
+          "examples": [
+            "ok"
+          ]
+        },
+        "total": {
+          "type": "integer",
+          "title": "The Results Total Schema",
+          "examples": [
+            1
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
