@@ -426,6 +426,28 @@
                 },
                 "additionalProperties": false
               },
+              "affectedEntities": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "title": "The type of the entity",
+                            "examples": [
+                                "AERODROME"
+                            ]
+                        },
+                        "closure": {
+                            "type": "string",
+                            "title": "The type of closure",
+                            "examples": [
+                                "TOTAL", "PARTIAL"
+                            ]
+                        }
+                    }
+                }
+              },
               "metadata": {
                 "type": "object",
                 "title": "NOTAM property metadata",
